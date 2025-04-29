@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: backend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - MONGODB_URI=mongodb://mongodb:27017/desafiojs
+    depends_on:
+      - mongodb
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - desafio-network
+    command: sh -c "npm install && npm run dev"
+
+  mongodb:
+    image: mongo:6.0
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=desafiojs
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - desafio-network
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "80:80"
+    # REMOVIDOS os volumes que sobrescreviam /app e /usr/share/nginx/html
+    networks:
+      - desafio-network
+    depends_on:
+      - backend
+
+volumes:
+  mongodb_data:
+
+networks:
+  desafio-network:
+    driver: bridge
