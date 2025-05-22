@@ -4,7 +4,7 @@ db.createCollection("tarefas", {
     validator: {
         $jsonSchema: {
             bsonType: "object",
-            required: ["nome", "status", "data_agendado"], // Campos obrigatórios
+            required: ["nome", "status", "data_agendado"], 
             properties: {
                 nome: {
                     bsonType: "string",
@@ -12,8 +12,8 @@ db.createCollection("tarefas", {
                 },
                 status: {
                     bsonType: "string",
-                    enum: ["F", "A"],
-                    description: "Status deve ser 'F' (Fechado) ou 'A' (Aberto)"
+                    enum: ["F", "A", "P"],
+                    description: "Status deve ser 'F' (Fechado) ou 'A' (Aberto) ou 'P' (Pendente)"
                 },
                 data_agendado: {
                     bsonType: "date",
