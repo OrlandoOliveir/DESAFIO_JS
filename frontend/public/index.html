@@ -1,11 +1,66 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Todo App</title>
-  </head>
-  <body>
-    <div id="app">
-      <button id="fetchBtn">Clique para carregar JS TESTE 111</button>
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="header-content">
+        <h1>To Do App</h1>
+        <button id="add-btn" class="tech-button">
+          <span>+</span> Nova Tarefa
+        </button>
+      </div>
+    </header>
+
+    <div class="task-form" id="task-form" style="display: none;">
+      <input type="text" id="task-name" placeholder="Nome da tarefa">
+      <select id="task-status">
+        <option value="pendente">Pendente</option>
+        <option value="em_andamento">Em andamento</option>
+        <option value="concluido">Concluído</option>
+      </select>
+      <input type="date" id="task-date">
+      <button id="save-btn" class="tech-button">Salvar</button>
+      <button id="cancel-btn" class="tech-button-cancel">Cancelar</button>
     </div>
-  </body>
+
+    <div class="task-grid-header">
+      <div>Nome</div>
+      <div>Status</div>
+      <div>Data Agendada</div>
+      <div>Ações</div>
+    </div>
+
+    <div class="task-grid" id="task-grid">
+      <div class="task-row">
+        <div class="task-name">Reunião de equipe</div>
+        <div class="task-status pendente">Pendente</div>
+        <div class="task-date">22/05/2023</div>
+        <div class="task-actions">
+          <button class="edit-btn tech-button-secondary" title="Editar"></button>
+          <button class="delete-btn tech-button-cancel" title="Excluir"></button>
+        </div>
+      </div>
+      <div class="task-row">
+        <div class="task-name">Desenvolver CRUD</div>
+        <div class="task-status em_andamento">Em andamento</div>
+        <div class="task-date">25/05/2023</div>
+        <div class="task-actions">
+          <button class="edit-btn tech-button-secondary" title="Editar"></button>
+          <button class="delete-btn tech-button-cancel" title="Excluir"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../src/index.js"></script>
+</body>
+
 </html>

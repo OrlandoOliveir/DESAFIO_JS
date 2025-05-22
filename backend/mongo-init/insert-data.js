@@ -6,6 +6,7 @@ db.tarefas.insertMany([
         nome: "Implementar login",
         status: "A", // 'A' para Aberto
         data_agendado: new Date("2024-06-01")
+
     },
     {
         nome: "Criar página de perfil",
@@ -14,7 +15,7 @@ db.tarefas.insertMany([
     },
     {
         nome: "Corrigir bug no formulário",
-        status: "F", // 'F' para Fechado
+        status: "F", 
         data_agendado: new Date("2024-05-28")
     },
     {
