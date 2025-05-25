@@ -2,10 +2,13 @@ const path = require('path');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyPlugin = require('copy-webpack-plugin'); // Novo
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    main: './src/index.js',
+    new_task: './src/new_task.js' // Adicionei esta entrada
+  },
   output: {
     filename: 'js/[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
@@ -25,22 +28,31 @@ module.exports = {
   },
   plugins: [
     new ESLintPlugin({
-      extensions: ['js', 'jsx'],
+      extensions: ['js'],
       fix: true,
     }),
-    // Processa index.html (com injeção de JS/CSS)
+    // Index.html
     new HtmlWebpackPlugin({
       template: './public/index.html',
+      filename: 'index.html',
       inject: 'body',
+      chunks: ['main'] // Injeta apenas o JS principal
     }),
-    // Copia TODOS os outros arquivos HTML/CSS estáticos
+    // New_task.html
+    new HtmlWebpackPlugin({
+      template: './public/new_task.html',
+      filename: 'new_task.html',
+      inject: 'body',
+      chunks: ['new_task'] // Injeta apenas o JS da nova tarefa
+    }),
+    // Copia arquivos estáticos (CSS, etc)
     new CopyPlugin({
       patterns: [
         {
           from: 'public',
           to: '.',
           globOptions: {
-            ignore: ['**/index.html'] // Ignora o já processado
+            ignore: ['**/*.html'] // Ignora todos HTMLs (já processados)
           }
         }
       ],
