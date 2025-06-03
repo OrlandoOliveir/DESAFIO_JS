@@ -258,3 +258,24 @@ a {
         align-items: stretch;
     }
 }
+.header-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#refresh-btn {
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.refresh-icon {
+  font-size: 1.2em;
+  transition: transform 0.3s ease;
+}
+
+#refresh-btn:hover .refresh-icon {
+  transform: rotate(180deg);
+}
