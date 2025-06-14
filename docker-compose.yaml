@@ -10,13 +10,13 @@ services:
       - NODE_ENV=development
       - MONGODB_URI=mongodb://mongodb:27017/desafiojs
     depends_on:
-      - mongodb
+      - mongodb  # Apenas espera o MongoDB iniciar (sem verificação de saúde)
     volumes:
       - ./backend:/app
       - /app/node_modules
     networks:
       - desafio-network
-    command: sh -c "npm install && npm run dev"
+    command: npm run dev  # Mantém o hot reload
 
   mongodb:
     image: mongo:6.0
@@ -30,22 +30,23 @@ services:
       - ./backend/mongo-init:/docker-entrypoint-initdb.d
     networks:
       - desafio-network
-    command: mongod
 
   frontend:
     build: ./frontend
     container_name: frontend
     ports:
       - "80:80"
+    volumes:
+      - ./frontend:/app  # Hot reload para frontend
+      - /app/node_modules
     networks:
       - desafio-network
     depends_on:
-      - backend
+      - backend  # Ordem básica de inicialização
 
   mongo-express:
     image: mongo-express
     container_name: mongo-express
-    restart: always
     ports:
       - "8081:8081"
     environment:

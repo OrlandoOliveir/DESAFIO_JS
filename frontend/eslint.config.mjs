@@ -1,25 +1,39 @@
-import js from "@eslint/js";
-import globals from "globals";
-import { defineConfig } from "eslint/config";
+import globals from 'globals';
+import js from '@eslint/js';
 
-export default defineConfig([
+export default [
+  js.configs.recommended,
   {
-    files: ["**/*.{js,mjs,cjs}"],
-    plugins: { 
-      "@eslint/js": js 
-    },
+    files: ['**/*.{js,mjs}'],
     languageOptions: {
+      sourceType: 'module',
       globals: {
         ...globals.browser,
-        ...globals.node
+        ...globals.node, 
+        error: 'readonly', 
       },
-      ecmaVersion: "latest",
-      sourceType: "module"
+      parserOptions: {
+        ecmaVersion: 'latest', 
+      }
     },
     rules: {
-      "no-unused-vars": "warn",
-      "no-console": "warn",     
-      "semi": ["error", "always"] 
-    }
-  }
-]);
+      'indent': ['error', 2],
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }], 
+      'no-console': 'warn', 
+    },
+  },
+  {
+    files: ['**/*.cjs'],
+    languageOptions: {
+      sourceType: 'commonjs',
+      globals: {
+        ...globals.node,
+      },
+    },
+    rules: {
+      'indent': ['error', 2],
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      'no-console': 'warn',
+    },
+  },
+];
