@@ -1,10 +1,9 @@
-db = db.getSiblingDB('desafiojs'); // Seleciona o banco de dados
+db = db.getSiblingDB('desafiojs'); 
 
-// Dados fictícios para a collection 'tarefas'
 db.tarefas.insertMany([
     {
         nome: "Implementar login",
-        status: "A", // 'A' para Aberto
+        status: "A", 
         data_agendado: new Date("2024-06-01")
 
     },

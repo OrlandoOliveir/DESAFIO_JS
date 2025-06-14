@@ -1,191 +1,198 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #f8f9fa;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f8f9fa;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .container {
-    max-width: 600px;
-    width: 100%;
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  width: 100%;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 /* Cabeçalho - Mesmo estilo */
 header {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eaeaea;
-    text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eaeaea;
+  text-align: center;
 }
 
 h1 {
-    color: #2c3e50;
-    font-size: 28px;
-    font-weight: 600;
+  color: #2c3e50;
+  font-size: 28px;
+  font-weight: 600;
 }
 
 /* Formulário - Adaptado do estilo principal */
 .task-form {
-    display: grid;
-    gap: 25px;
+  display: grid;
+  gap: 25px;
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .form-group label {
-    font-weight: 500;
-    color: #2c3e50;
-    font-size: 15px;
+  font-weight: 500;
+  color: #2c3e50;
+  font-size: 15px;
 }
 
-.task-form input, 
+.task-form input,
 .task-form select {
-    padding: 12px 15px;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    font-size: 15px;
-    background: white;
-    width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 15px;
+  background: white;
+  width: 100%;
 }
 
-.task-form input:focus, 
+.task-form input:focus,
 .task-form select:focus {
-    outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
 }
 
 /* Botões - Mesmo estilo do menu principal */
 .form-actions {
-    display: flex;
-    gap: 15px;
-    margin-top: 10px;
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
 }
 
 .tech-button {
-    background: linear-gradient(135deg, #4ba24b 0%, #567e56 100%);
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 40px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 2px 5px #4ba24b;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    position: relative;
-    overflow: hidden;
+  background: linear-gradient(135deg, #4ba24b 0%, #567e56 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 5px #4ba24b;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
 }
 
 .tech-button span {
-    font-size: 20px;
-    font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .tech-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px #4ba24b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px #4ba24b;
 }
 
 .tech-button:active {
-    transform: translateY(0);
+  transform: translateY(0);
 }
 
 .tech-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: 0.5s;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
 }
 
 .tech-button:hover::before {
-    left: 100%;
+  left: 100%;
 }
 
 .tech-button-cancel {
-    background: #f0f0f0;
-    color: #555;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 40px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    flex: 1;
-    justify-content: center;
+  background: #f0f0f0;
+  color: #555;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  flex: 1;
+  justify-content: center;
 }
 
 .tech-button-cancel:hover {
-    background: #e0e0e0;
-    transform: translateY(-2px);
+  background: #e0e0e0;
+  transform: translateY(-2px);
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .container {
-        padding: 20px;
-    }
-    
-    .form-actions {
-        flex-direction: column;
-    }
-    
-    .tech-button,
-    .tech-button-cancel {
-        width: 100%;
-    }
+  .container {
+    padding: 20px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .tech-button,
+  .tech-button-cancel {
+    width: 100%;
+  }
 }
 
 /* Ícone de Voltar (Casinha) */
 .home-button {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 22px;
-    text-decoration: none;
-    background-color: #4ba24b;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 50px;
-    box-shadow: 0 2px 5px rgba(75, 162, 75, 0.4);
-    transition: background-color 0.3s, transform 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 22px;
+  text-decoration: none;
+  background-color: #4ba24b;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 50px;
+  box-shadow: 0 2px 5px rgba(75, 162, 75, 0.4);
+  transition:
+    background-color 0.3s,
+    transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .home-button:hover {
-    background-color: #3d8f3d;
-    transform: translateY(-2px);
+  background-color: #3d8f3d;
+  transform: translateY(-2px);
 }

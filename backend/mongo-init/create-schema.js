@@ -25,5 +25,3 @@ db.createCollection("tarefas", {
 });
 
 db.tarefas.createIndex({ status: 1 });
-
-console.log("✅ Collection 'tarefas' criada com sucesso!");
