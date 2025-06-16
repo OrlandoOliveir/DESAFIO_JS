@@ -12,8 +12,8 @@ db.createCollection("tarefas", {
                 },
                 status: {
                     bsonType: "string",
-                    enum: ["F", "A", "P"],
-                    description: "Status deve ser 'F' (Fechado) ou 'A' (Aberto) ou 'P' (Pendente)"
+                    enum: ["A", "P", "C"], 
+                    description: "Status deve ser 'A', 'P' ou 'C'"
                 },
                 data_agendado: {
                     bsonType: "date",

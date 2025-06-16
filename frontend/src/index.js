@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const statusMap = {
       A: { text: 'Pendente', class: 'pendente' },
       P: { text: 'Em andamento', class: 'em_andamento' },
-      F: { text: 'Concluído', class: 'concluido' },
+      C: { text: 'Concluído', class: 'concluido' }, 
     };
     return statusMap[status] || { text: status, class: '' };
   };
@@ -69,9 +69,56 @@ document.addEventListener('DOMContentLoaded', () => {
       );
 
       taskGrid.appendChild(taskRow);
+
+      const completeBtn = taskRow.querySelector('.complete-btn');
+      completeBtn.addEventListener('click', async () => {
+        if (confirm('Deseja marcar esta tarefa como concluída?')) {
+          try {
+            const response = await fetch(`http://localhost:3000/api/tasks/${task._id}`, {
+              method: 'PUT',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ status: 'C' })
+            });
+            if (!response.ok) throw new Error('Erro ao atualizar tarefa');
+            alert('Tarefa marcada como concluída!');
+            loadTasks();
+          } catch (error) {
+            alert('Erro ao concluir tarefa: ' + error.message);
+          }
+        }
+      });
+
+      const deleteBtn = taskRow.querySelector('.delete-btn');
+      deleteBtn.addEventListener('click', async () => {
+        if (confirm('Deseja realmente excluir esta tarefa?')) {
+          try {
+            const response = await fetch(`http://localhost:3000/api/tasks/${task._id}`, {
+              method: 'DELETE'
+            });
+            if (!response.ok) throw new Error('Erro ao excluir tarefa');
+            alert('Tarefa excluída com sucesso!');
+            loadTasks();
+          } catch (error) {
+            alert('Erro ao excluir tarefa: ' + error.message);
+          }
+        }
+      });
+
+      const editBtn = taskRow.querySelector('.edit-btn');
+      editBtn.addEventListener('click', () => {
+        localStorage.setItem('editTask', JSON.stringify({
+          _id: task._id,
+          nome: task.nome,
+          status: task.status,
+          data_agendado: task.data_agendado
+        }));
+        window.location.href = 'new_task.html?edit=1';
+      });
     });
   };
 
+
+  
   refreshBtn.addEventListener('click', loadTasks);
 
   const emptyRow = document.createElement('div');

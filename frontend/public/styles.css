@@ -79,10 +79,10 @@ h1 {
   width: 100%;
   height: 100%;
   background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
   );
   transition: 0.5s;
 }
@@ -92,7 +92,8 @@ h1 {
 }
 
 .tech-button-secondary,
-.tech-button-cancel {
+.tech-button-cancel,
+.tech-button-success {
   background: #f0f0f0;
   color: #555;
   border: none;
@@ -129,18 +130,28 @@ h1 {
   transform: scale(1.1);
 }
 
+.tech-button-success {
+  color: #2e7d32;
+  background: #e8f5e9;
+}
+
+.tech-button-success:hover {
+  background: #c8e6c9;
+  transform: scale(1.1);
+}
+
 .tech-button-secondary::after {
   content: '✏️';
 }
 
-.tech-button-cancel::after {
-  content: '🗑️';
-}
-
-.complete-btn::after {
+.tech-button-success::after {
   content: '✓';
   font-weight: bold;
   font-size: 1.1em;
+}
+
+.tech-button-cancel::after {
+  content: '🗑️';
 }
 
 .task-form {
@@ -245,10 +256,12 @@ h1 {
   gap: 8px;
   justify-content: center;
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
 @media (max-width: 768px) {
   .header-content {
     flex-direction: column;
@@ -271,6 +284,7 @@ a {
     align-items: stretch;
   }
 }
+
 .header-buttons {
   display: flex;
   gap: 10px;
@@ -292,14 +306,17 @@ a {
 #refresh-btn:hover .refresh-icon {
   transform: rotate(180deg);
 }
+
 .task-status.aberto {
   background-color: #e3f2fd;
   color: #1565c0;
 }
+
 .task-status.pendente {
   background-color: #fff8e1;
   color: #ff8f00;
 }
+
 .task-status.concluido {
   background-color: #e8f5e9;
   color: #2e7d32;

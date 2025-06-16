@@ -14,7 +14,7 @@ db.tarefas.insertMany([
     },
     {
         nome: "Corrigir bug no formulário",
-        status: "F", 
+        status: "C", 
         data_agendado: new Date("2024-05-28")
     },
     {
@@ -24,8 +24,18 @@ db.tarefas.insertMany([
     },
     {
         nome: "Testar integração com API",
-        status: "F",
+        status: "C",
         data_agendado: new Date("2024-05-30")
+    },
+    {
+        nome: "Testar status P",
+        status: "P",
+        data_agendado: new Date("2024-05-30")
+    },
+    {
+        nome: "Tarefa concluída",
+        status: "C",
+        data_agendado: new Date()
     }
 ]);
 
