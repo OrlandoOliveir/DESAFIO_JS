@@ -1,0 +1,16 @@
+Olá meus caros!
+
+Seguindo o que foi pedido, esta é uma agenda de tarefas bem simples composta por um Crud utilizando o Mongo db e uma API para transacionar os dados. 
+
+O ambiente contém:
+
+webpack
+eslint
+prettier
+Otimização (vendor)(optimizechunk)
+Backend
+nodejs
+express
+mongodb
+
+
