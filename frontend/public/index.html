@@ -1,67 +1,76 @@
 <!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>To Do</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-<div class="container">
-  <header>
-    <div class="header-content">
-      <h1>To Do App</h1>
-      <div class="header-buttons">
-        <a href="new_task.html"
-        ><button id="add-btn" class="tech-button">
-          <span>+</span> Nova Tarefa
-        </button></a
-        >
-        <button id="refresh-btn" class="tech-button" title="Atualizar">
-          <span class="refresh-icon">↻</span>
-        </button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="header-content">
+          <h1>To Do App</h1>
+          <div class="header-buttons">
+            <a href="new_task.html"
+              ><button id="add-btn" class="tech-button">
+                <span>+</span> Nova Tarefa
+              </button></a
+            >
+            <button id="refresh-btn" class="tech-button" title="Atualizar">
+              <span class="refresh-icon">↻</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div class="task-form" id="task-form" style="display: none">
+        <input type="text" id="task-name" placeholder="Nome da tarefa" />
+        <select id="task-status">
+          <option value="A">Pendente</option>
+          <option value="P">Em andamento</option>
+          <option value="C">Concluído</option>
+        </select>
+        <input type="date" id="task-date" />
+        <button id="save-btn" class="tech-button">Salvar</button>
+        <button id="cancel-btn" class="tech-button-cancel">Cancelar</button>
+      </div>
+
+      <div class="task-grid-header">
+        <div>Nome</div>
+        <div>Status</div>
+        <div>Data Agendada</div>
+        <div>Ações</div>
+      </div>
+
+      <div class="task-grid" id="task-grid">
+        <div class="task-row" style="display: none" id="task-template">
+          <div class="task-name"></div>
+          <div class="task-status">
+            <span class="status-text"></span>
+          </div>
+          <div class="task-date"></div>
+          <div class="task-actions">
+            <button
+              class="complete-btn tech-button-success"
+              title="Concluir"
+              id="btn_concluir"
+            ></button>
+            <button
+              class="edit-btn tech-button-secondary"
+              title="Editar"
+              id="btn_edit"
+            ></button>
+            <button
+              class="delete-btn tech-button-cancel"
+              title="Excluir"
+              id="btn_cancel"
+            ></button>
+          </div>
+        </div>
       </div>
     </div>
-  </header>
 
-  <div class="task-form" id="task-form" style="display: none">
-    <input type="text" id="task-name" placeholder="Nome da tarefa" />
-    <select id="task-status">
-      <option value="A">Pendente</option>
-      <option value="P">Em andamento</option>
-      <option value="C">Concluído</option>
-    </select>
-    <input type="date" id="task-date" />
-    <button id="save-btn" class="tech-button">Salvar</button>
-    <button id="cancel-btn" class="tech-button-cancel">Cancelar</button>
-  </div>
-
-  <div class="task-grid-header">
-    <div>Nome</div>
-    <div>Status</div>
-    <div>Data Agendada</div>
-    <div>Ações</div>
-  </div>
-
-  <div class="task-grid" id="task-grid">
-    <div class="task-row" style="display: none" id="task-template">
-      <div class="task-name"></div>
-      <div class="task-status">
-        <span class="status-text"></span>
-      </div>
-      <div class="task-date"></div>
-      <div class="task-actions">
-        <button class="complete-btn tech-button-success" title="Concluir" id="btn_concluir">
-        </button>
-        <button class="edit-btn tech-button-secondary" title="Editar" id="btn_edit">
-        </button>
-        <button class="delete-btn tech-button-cancel" title="Excluir" id="btn_cancel">
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script src="../src/index.js"></script>
-</body>
+    <script src="../src/index.js"></script>
+  </body>
 </html>

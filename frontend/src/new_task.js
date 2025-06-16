@@ -3,7 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (editTask) {
     document.getElementById('task-name').value = editTask.nome;
     document.getElementById('task-status').value = editTask.status;
-    document.getElementById('task-date').value = new Date(editTask.data_agendado).toISOString().split('T')[0];
+    document.getElementById('task-date').value = new Date(
+      editTask.data_agendado
+    )
+      .toISOString()
+      .split('T')[0];
   }
 
   document.getElementById('task-form').addEventListener('submit', async (e) => {
@@ -15,17 +19,20 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       let response;
       if (editTask) {
-        response = await fetch(`http://localhost:3000/api/tasks/${editTask._id}`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ nome, status, data_agendado })
-        });
+        response = await fetch(
+          `http://localhost:3000/api/tasks/${editTask._id}`,
+          {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ nome, status, data_agendado }),
+          }
+        );
         localStorage.removeItem('editTask');
       } else {
         response = await fetch('http://localhost:3000/api/tasks', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ nome, status, data_agendado })
+          body: JSON.stringify({ nome, status, data_agendado }),
         });
       }
       if (!response.ok) throw new Error('Erro ao salvar tarefa');

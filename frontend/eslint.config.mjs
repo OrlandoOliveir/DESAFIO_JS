@@ -9,17 +9,17 @@ export default [
       sourceType: 'module',
       globals: {
         ...globals.browser,
-        ...globals.node, 
-        error: 'readonly', 
+        ...globals.node,
+        error: 'readonly',
       },
       parserOptions: {
-        ecmaVersion: 'latest', 
-      }
+        ecmaVersion: 'latest',
+      },
     },
     rules: {
-      'indent': ['error', 2],
-      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }], 
-      'no-console': 'warn', 
+      indent: ['error', 2],
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      'no-console': 'warn',
     },
   },
   {
@@ -31,7 +31,7 @@ export default [
       },
     },
     rules: {
-      'indent': ['error', 2],
+      indent: ['error', 2],
       'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       'no-console': 'warn',
     },

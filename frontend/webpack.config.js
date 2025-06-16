@@ -15,16 +15,16 @@ module.exports = {
     publicPath: '/',
     clean: true,
   },
-optimization: {
-  splitChunks: {
-    chunks: 'all',
-    minSize: 10000, 
-    cacheGroups: {
-      vendors: {
-        test: /[\\/]node_modules[\\/]/, 
-        name: 'vendors',
-        priority: 10, 
-        enforce: true,
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      minSize: 10000,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          priority: 10,
+          enforce: true,
           reuseExistingChunk: true,
         },
         default: {
