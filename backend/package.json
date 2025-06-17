@@ -36,7 +36,9 @@
     "transformIgnorePatterns": [
       "/node_modules/(?!mongoose)/"
     ],
-    "setupFilesAfterEnv": ["./jest.setup.js"],
+    "setupFilesAfterEnv": [
+      "./jest.setup.js"
+    ],
     "collectCoverage": true,
     "coverageDirectory": "coverage",
     "coveragePathIgnorePatterns": [
@@ -51,12 +53,15 @@
   },
   "babel": {
     "presets": [
-      ["@babel/preset-env", { 
-        "targets": { 
-          "node": "current" 
-        },
-        "modules": "auto"
-      }]
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          },
+          "modules": "auto"
+        }
+      ]
     ]
   }
 }
