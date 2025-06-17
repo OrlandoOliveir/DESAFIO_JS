@@ -1,9 +1,12 @@
 import js from '@eslint/js';
 import globals from 'globals';
-import prettier from 'eslint-config-prettier';
+import eslintPluginPrettier from 'eslint-plugin-prettier';
 
 export default [
   js.configs.recommended,
+  {
+    ignores: ['dist/**', 'node_modules/**'],
+  },
   {
     files: ['**/*.js'],
     languageOptions: {
@@ -15,8 +18,11 @@ export default [
         sourceType: 'module',
       },
     },
+    plugins: {
+      prettier: eslintPluginPrettier,
+    },
     rules: {
-      ...prettier.rules,
+      'prettier/prettier': 'error',
       'no-unused-vars': 'warn',
     },
   },

@@ -2,7 +2,10 @@ version: '3.8'
 
 services:
   backend:
-    build: ./backend
+    build: 
+      context: ./backend
+      args:
+        - NODE_ENV=development
     container_name: backend
     ports:
       - "3000:3000"
@@ -10,13 +13,28 @@ services:
       - NODE_ENV=development
       - MONGODB_URI=mongodb://mongodb:27017/desafiojs
     depends_on:
-      - mongodb  # Apenas espera o MongoDB iniciar (sem verificação de saúde)
+      - mongodb
     volumes:
       - ./backend:/app
       - /app/node_modules
     networks:
       - desafio-network
-    command: npm run dev  # Mantém o hot reload
+    command: npm run dev
+
+  backend-test:
+    build:
+      context: ./backend
+      args:
+        - NODE_ENV=test
+    container_name: backend-test
+    environment:
+      - NODE_ENV=test
+      - MONGODB_URI=mongodb://mongodb:27017/desafiojs-test
+    depends_on:
+      - mongodb
+    networks:
+      - desafio-network
+    command: sh -c "npx jest --forceExit --detectOpenHandles"
 
   mongodb:
     image: mongo:6.0
@@ -37,12 +55,12 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./frontend:/app  # Hot reload para frontend
+      - ./frontend:/app
       - /app/node_modules
     networks:
       - desafio-network
     depends_on:
-      - backend  # Ordem básica de inicialização
+      - backend
 
   mongo-express:
     image: mongo-express
