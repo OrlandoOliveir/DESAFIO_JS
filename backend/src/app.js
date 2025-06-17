@@ -4,16 +4,19 @@ import cors from 'cors';
 import connectDB from '../config/db.js';
 import routes from './routes.js';
 
-const app = express();
+const createApp = () => {
+  const app = express();
 
-app.use(cors());
-app.use(express.json());
+  app.use(cors());
+  app.use(express.json());
 
-connectDB();
+  if (process.env.NODE_ENV !== 'test') {
+    connectDB().catch(err => console.error('DB connection error:', err));
+  }
 
-app.use('/api', routes);
+  app.use('/api', routes);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
-});
+  return app;
+}
+
+export default createApp;

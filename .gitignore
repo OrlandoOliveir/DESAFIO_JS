@@ -5,3 +5,4 @@ package-lock.json
 /frontend/node_modules/
 /frontend/dist
 /.idea
+/backend/coverage
