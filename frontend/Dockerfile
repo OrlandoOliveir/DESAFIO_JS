@@ -5,7 +5,7 @@ COPY package*.json ./
 
 # Instala dependências incluindo as de desenvolvimento para o build
 RUN npm install --include=dev
-
+RUN npm install 
 COPY . .
 
 # Executa o build
