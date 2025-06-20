@@ -14,7 +14,7 @@ express
 mongodb
 
 * Para rodar as ferramentas basta buildar o container. Ferramentas executáveis no front temos o lint e o prettier e no back o jest (além das outras ferramentas obrigatórias). *
-
+* O teste do lint é apenas para ver se o servidor está ouvindo na porta correta e retornando 200 *
 Sugestão de ordem para correção:
 
 cd DESAFIO_JS/ 
