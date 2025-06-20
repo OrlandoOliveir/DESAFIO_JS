@@ -13,5 +13,20 @@ nodejs
 express
 mongodb
 
+* Para rodar as ferramentas basta buildar o container. Ferramentas executáveis no front temos o lint e o prettier e no back o jest (além das outras ferramentas obrigatórias). *
 
-As ferramentas estão configuradas e rodando, porém, no caso de ferramentas específicas como o eslint e o prettier eu nao criei nenhuma config específica para funcionamento da tarefa, apenas configurei o ambiente.
+Sugestão de ordem para correção:
+
+cd DESAFIO_JS/ 
+docker compose build 
+docker compose up -d 
+cd frontend
+npm run lint
+npm run format:check
+
+cd ..
+
+cd backend
+npm run test
+
+http://localhost/index.html -> Página inicial, aí basta testar o app.
